@@ -1,7 +1,11 @@
+using aplicacion.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -19,6 +23,11 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Account}/{action=Login}/{id?}");
+
 
 app.MapRazorPages();
 

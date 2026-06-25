@@ -20,9 +20,9 @@ namespace aplicacion.Services
 
             string sql =
                 @"SELECT COUNT(*)
-                  FROM tbl_usuarios
-                  WHERE usr=@usr
-                  AND pwd=@pwd";
+                  FROM tb_credencial
+                  WHERE USUARIO=@usr
+                  AND PASWORD=@pwd";
 
             using var cmd = new MySqlCommand(sql, conn);
 
